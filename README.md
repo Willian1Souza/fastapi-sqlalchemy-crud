@@ -2,7 +2,15 @@
 
 Este projeto é uma API REST funcional para gerenciamento de usuários (CRUD), desenvolvida com o framework **FastAPI** e utilizando **SQLAlchemy** para persistência de dados em um banco de dados **SQLite**.
 
-A aplicação segue boas práticas de organização, separando responsabilidades em modelos, esquemas (Pydantic) e repositórios.
+A aplicação segue o **Repository Pattern**, separando a lógica de acesso a dados da lógica de negócio.
+
+## ✨ Funcionalidades
+
+*   **Listagem de Usuários:** Busca paginada com filtro por nome (case-insensitive).
+*   **Criação e Atualização:** O método `save` gerencia inteligentemente novos registros e atualizações (Upsert).
+*   **Busca por ID:** Recuperação detalhada de um único usuário.
+*   **Verificação de Existência:** Checagem performática antes de operações críticas.
+*   **Exclusão Segura:** Remove usuários garantindo que o registro exista no banco.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -37,7 +45,8 @@ python -m venv .venv
     source .venv/bin/activate
     ```
 
-### 4. Instalar Dependências
+### 4. Instalar e Gerenciar Dependências
+Para instalar as dependências necessárias:
 ```bash
 pip install fastapi sqlalchemy uvicorn pydantic
 ```
