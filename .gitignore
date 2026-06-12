@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+*.pyc
+.vscode/
+*.sqlite
+*.sqlite-journal
+
+# Ambientes virtuais
+venv/
+env/

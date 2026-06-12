@@ -1,16 +1,25 @@
-from fastapi import FastAPI, Depends, HTTPException, status, Response
+from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from models import Usuario
 from database import engine, Base, get_db
 from repositories import UsuarioRepository
 from schemas import UsuarioRequest, UsuarioResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post(
     "/api/usuarios",
@@ -61,7 +70,6 @@ def delete_by_id(id: int, db: Session = Depends(get_db)):
         )
 
     UsuarioRepository.delete_by_id(db, id)
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 @app.put("/api/usuarios/{id}", response_model=UsuarioResponse)

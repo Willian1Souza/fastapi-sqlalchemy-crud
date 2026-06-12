@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD de Usuários</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Cadastro de Usuários</h1>
+
+  <form id="formUsuario">
+    <input type="hidden" id="id">
+
+    <input type="text" id="nome" placeholder="Nome" required>
+    <input type="email" id="email" placeholder="E-mail" required>
+    <input type="text" id="telefone" placeholder="Telefone" required>
+    <input type="password" id="senha" placeholder="Senha" required>
+
+    <button type="submit">Salvar</button>
+  </form>
+
+  <h2>Usuários cadastrados</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaUsuarios"></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
